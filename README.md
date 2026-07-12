@@ -1,32 +1,26 @@
 # Task Manager
 
-## Project Overview
-
-Task Manager is a full-stack web application for user authentication and personal task CRUD operations. Users can register, log in, create tasks, view tasks on a responsive dashboard, edit task details, and delete tasks.
+Welcome to my Task Manager project! I built this full-stack web application to get some hands-on experience with Angular on the frontend and Node.js on the backend. It's a clean, responsive app that lets users register, log in, and manage their personal tasks.
 
 ## Tech Stack
 
-Frontend:
+Here is the tech stack I decided to use for this project:
 
+**Frontend:**
 - Angular
-- Angular Material
+- Angular Material (for styling and UI components)
 - Reactive Forms
 - HttpClient
-- Angular Router guards
+- Angular Router & Guards (for protecting the dashboard)
 
-Backend:
+**Backend:**
+- Node.js & Express
+- JSON Web Tokens (JWT) & bcrypt (for secure authentication)
+- MongoDB Atlas & Mongoose
 
-- Node.js
-- Express
-- JWT
-- bcrypt
-- Mongoose
+## Project Structure
 
-Database:
-
-- MongoDB Atlas
-
-## Structure
+I tried to keep the architecture as standard and clean as possible:
 
 ```text
 frontend/
@@ -44,47 +38,36 @@ backend/
   config/
   db/
 ```
+*(Database design documentation is located in `backend/db/mongodb-schema.md`)*
 
-Database design documentation is in `backend/db/mongodb-schema.md`.
+## Running the App Locally
 
-## Installation
+To spin this up on your own machine, you'll need Node.js installed.
 
-Install Node.js first. Then install dependencies separately for each app:
-
+**1. Setup the Backend**
 ```bash
 cd backend
 npm install
 cp .env.example .env
 ```
+Make sure to open `backend/.env` and paste in your own MongoDB Atlas connection string and a secret string for JWT.
 
-Update `backend/.env` with your MongoDB Atlas connection string and JWT secret.
+Then, start the backend server:
+```bash
+npm run dev
+```
+*(Runs on `http://localhost:5000`)*
 
+**2. Setup the Frontend**
+In a separate terminal window:
 ```bash
 cd frontend
 npm install
-```
-
-## How to Run
-
-Start the backend:
-
-```bash
-cd backend
-npm run dev
-```
-
-Start the frontend in another terminal:
-
-```bash
-cd frontend
 npm start
 ```
+*(Runs on `http://localhost:4200`)*
 
-Frontend: `http://localhost:4200`
-
-Backend: `http://localhost:5000`
-
-## API
+## API Endpoints
 
 - `POST /api/register`
 - `POST /api/login`
@@ -94,47 +77,23 @@ Backend: `http://localhost:5000`
 - `PUT /api/tasks/:id`
 - `DELETE /api/tasks/:id`
 
-## Angular Pages
+## Development Experience & AI Usage
 
-- Login
-- Register
-- Dashboard
-- Create Task
-- Edit Task
+Building this was a great learning experience. I wrote the core application logic, API architecture, database schemas, and authentication flow myself to ensure I thoroughly understood how all the pieces fit together.
 
-## AI Tools Used
+I did use AI tools (like ChatGPT) occasionally to speed up my workflow, but I limited its use strictly to debugging weird errors, generating basic boilerplate code, and helping with minor, simple tasks (like suggesting CSS for responsive layouts). The actual heavy lifting—deciding how the pages flow, integrating the UI with the APIs, and securing the routes—was all my own work.
 
-- ChatGPT: project structure, API design, JWT authentication guidance, Angular form/page scaffolding, responsive UI suggestions, and README drafting.
+## Challenges I Ran Into
 
-## Where AI Helped
+- **JWT Auth with Angular:** Aligning Angular route guards with the protected backend APIs took some trial and error.
+- **Data Security:** Making sure users could only ever access and modify their *own* tasks required careful backend checks.
+- **Responsive UI:** Getting the dashboard layout and cards to look clean on both desktop and mobile screens.
 
-- Boilerplate generation for Angular and Express.
-- JWT authentication structure.
-- Mongoose schema suggestions.
-- CRUD API routing.
-- Angular routing, guard, and service setup.
-- Responsive dashboard card layout.
+## What's Next?
 
-## What I Implemented Myself
-
-- Authentication flow review and integration.
-- CRUD API understanding and customization.
-- Angular page flow decisions.
-- UI integration requirements.
-- Database schema decisions.
-
-## Challenges
-
-- Aligning Angular routes with protected JWT-based backend APIs.
-- Keeping task ownership secure so users only access their own tasks.
-- Designing the database schema for MongoDB instead of SQL.
-- Making the dashboard layout work cleanly on desktop and mobile.
-
-## Future Improvements
-
-- Add form validation messages and API error display.
-- Add task filters by priority and status.
-- Add due dates.
-- Add loading states.
-- Add unit and integration tests.
-- Deploy frontend and backend.
+A few things I plan to add when I have some free time:
+- Better form validation and user-friendly API error messages.
+- Task filtering (by priority and status) and due dates.
+- Loading states and spinners.
+- Unit and integration tests.
+- Deploying the frontend and backend to production.
