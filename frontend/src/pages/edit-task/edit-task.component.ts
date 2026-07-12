@@ -12,8 +12,8 @@ export class EditTaskComponent implements OnInit {
   form = this.fb.nonNullable.group({
     title: ['', Validators.required],
     description: [''],
-    priority: ['Medium' as const, Validators.required],
-    status: ['Todo' as const, Validators.required],
+    priority: ['Medium', Validators.required],
+    status: ['Todo', Validators.required],
     completed: [false]
   });
 

@@ -27,8 +27,8 @@ export class TaskService {
   createTask(payload: {
     title: string;
     description?: string;
-    priority?: Task['priority'];
-    status?: Task['status'];
+    priority?: string;
+    status?: string;
   }): Observable<Task> {
     return this.http.post<Task>(`${API_BASE_URL}/tasks`, payload);
   }

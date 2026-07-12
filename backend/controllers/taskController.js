@@ -34,9 +34,11 @@ const createTask = async (req, res) => {
 };
 
 const updateTask = async (req, res) => {
+  const { title, description, priority, status, completed } = req.body;
+
   const task = await Task.findOneAndUpdate(
     { _id: req.params.id, owner: req.user._id },
-    req.body,
+    { title, description, priority, status, completed },
     { new: true, runValidators: true }
   );
 
