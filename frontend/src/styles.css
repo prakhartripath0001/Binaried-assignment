@@ -21,3 +21,32 @@ body {
   gap: 16px;
   max-width: 420px;
 }
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.task-card {
+  border-radius: 8px;
+}
+
+.task-card mat-card-title {
+  padding: 16px 16px 0;
+}
+
+.task-card p {
+  margin: 8px 0;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+}

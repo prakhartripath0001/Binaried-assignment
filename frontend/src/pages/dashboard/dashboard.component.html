@@ -6,16 +6,20 @@
     <mat-card-content>
       <p *ngIf="tasks.length === 0">No tasks yet.</p>
 
-      <mat-list>
-        <mat-list-item *ngFor="let task of tasks">
-          <mat-checkbox [checked]="task.completed" (change)="toggleTask(task)">
-            {{ task.title }}
-          </mat-checkbox>
-          <span class="description">{{ task.description }}</span>
-          <button mat-button type="button" [routerLink]="['/tasks', task._id, 'edit']">Edit</button>
-          <button mat-button color="warn" type="button" (click)="deleteTask(task)">Delete</button>
-        </mat-list-item>
-      </mat-list>
+      <section class="task-grid">
+        <mat-card class="task-card" *ngFor="let task of tasks">
+          <mat-card-title>{{ task.title }}</mat-card-title>
+          <mat-card-content>
+            <p *ngIf="task.description">{{ task.description }}</p>
+            <p><strong>Priority:</strong> {{ task.priority }}</p>
+            <p><strong>Status:</strong> {{ task.status }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button type="button" [routerLink]="['/tasks', task._id, 'edit']">Edit</button>
+            <button mat-button color="warn" type="button" (click)="deleteTask(task)">Delete</button>
+          </mat-card-actions>
+        </mat-card>
+      </section>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" routerLink="/tasks/create">Create Task</button>

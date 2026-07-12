@@ -10,6 +10,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../pages/login/login.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    MatSelectModule,
     MatToolbarModule
   ],
   providers: [

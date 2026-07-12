@@ -1,12 +1,12 @@
-# Database Schema
+# MongoDB Schema Design
 
-MongoDB database: `task-manager`
+Database: `task-manager`
 
-## Collections
+This project uses MongoDB Atlas with Mongoose, so the database design is documented as MongoDB collections instead of a `schema.sql` file.
 
-### users
+## users
 
-Stores registered application users.
+Stores registered users.
 
 | Field | Type | Required | Notes |
 | --- | --- | --- | --- |
@@ -17,32 +17,32 @@ Stores registered application users.
 | `createdAt` | Date | Yes | Added by Mongoose timestamps |
 | `updatedAt` | Date | Yes | Added by Mongoose timestamps |
 
-Indexes:
+Index:
 
 - `email` unique index
 
-### tasks
+## tasks
 
-Stores tasks owned by users.
+Stores tasks created by users.
 
 | Field | Type | Required | Notes |
 | --- | --- | --- | --- |
 | `_id` | ObjectId | Yes | MongoDB document id |
 | `title` | String | Yes | Trimmed |
-| `description` | String | No | Defaults to empty string, trimmed |
+| `description` | String | No | Defaults to empty string |
+| `priority` | String | Yes | `Low`, `Medium`, or `High` |
+| `status` | String | Yes | `Todo`, `In Progress`, or `Done` |
 | `completed` | Boolean | Yes | Defaults to `false` |
 | `owner` | ObjectId | Yes | References `users._id` |
 | `createdAt` | Date | Yes | Added by Mongoose timestamps |
 | `updatedAt` | Date | Yes | Added by Mongoose timestamps |
 
-Relationships:
+Relationship:
 
 - One user can have many tasks.
 - Each task belongs to one user through `owner`.
 
-## Mongoose Models
-
-Runtime Mongoose models live in:
+Runtime Mongoose models:
 
 - `backend/models/User.js`
 - `backend/models/Task.js`

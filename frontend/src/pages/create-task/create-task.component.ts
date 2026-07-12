@@ -10,7 +10,9 @@ import { TaskService } from '../../services/task.service';
 export class CreateTaskComponent {
   form = this.fb.nonNullable.group({
     title: ['', Validators.required],
-    description: ['']
+    description: [''],
+    priority: ['Medium' as const, Validators.required],
+    status: ['Todo' as const, Validators.required]
   });
 
   constructor(

@@ -25,6 +25,8 @@ export class DashboardComponent implements OnInit {
       .updateTask(task._id, {
         title: task.title,
         description: task.description,
+        priority: task.priority,
+        status: task.completed ? 'Todo' : 'Done',
         completed: !task.completed
       })
       .subscribe((updated) => {

@@ -15,6 +15,24 @@
           <input matInput type="text" formControlName="description">
         </mat-form-field>
 
+        <mat-form-field appearance="outline">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority">
+            <mat-option value="Low">Low</mat-option>
+            <mat-option value="Medium">Medium</mat-option>
+            <mat-option value="High">High</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="Todo">Todo</mat-option>
+            <mat-option value="In Progress">In Progress</mat-option>
+            <mat-option value="Done">Done</mat-option>
+          </mat-select>
+        </mat-form-field>
+
         <button mat-raised-button color="primary" type="submit">Create</button>
         <button mat-button type="button" routerLink="/dashboard">Cancel</button>
       </form>

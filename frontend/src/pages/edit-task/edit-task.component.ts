@@ -12,6 +12,8 @@ export class EditTaskComponent implements OnInit {
   form = this.fb.nonNullable.group({
     title: ['', Validators.required],
     description: [''],
+    priority: ['Medium' as const, Validators.required],
+    status: ['Todo' as const, Validators.required],
     completed: [false]
   });
 
@@ -29,6 +31,8 @@ export class EditTaskComponent implements OnInit {
       this.form.patchValue({
         title: task.title,
         description: task.description,
+        priority: task.priority,
+        status: task.status,
         completed: task.completed
       });
     });
