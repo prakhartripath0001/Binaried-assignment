@@ -16,7 +16,7 @@ const getTask = async (req, res) => {
 };
 
 const createTask = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, priority, status } = req.body;
 
   if (!title) {
     return res.status(400).json({ message: 'Title is required' });
@@ -25,6 +25,8 @@ const createTask = async (req, res) => {
   const task = await Task.create({
     title,
     description,
+    priority,
+    status,
     owner: req.user._id
   });
 
