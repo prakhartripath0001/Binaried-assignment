@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TaskService } from '../../services/task.service';
+import { TaskService, Task } from '../../services/task.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -43,7 +43,7 @@ export class EditTaskComponent implements OnInit {
       return;
     }
 
-    this.taskService.updateTask(this.taskId, this.form.getRawValue()).subscribe(() => {
+    this.taskService.updateTask(this.taskId, this.form.getRawValue() as Partial<Task>).subscribe(() => {
       this.router.navigate(['/dashboard']);
     });
   }

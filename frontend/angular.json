@@ -32,5 +32,8 @@
       }
     }
   },
-  "defaultProject": "task-manager-frontend"
+  "defaultProject": "task-manager-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
